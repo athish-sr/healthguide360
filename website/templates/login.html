@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>HealthGuide360</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/messages.css' %}" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- datepicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- Header section starts -->
+     {% include 'header.html' %}
+    <!-- End header section -->
+  </div>
+
+  <div style="
+    background-image: url('https://themewagon.github.io/medi/img/banner/form_bg.jpg');
+    background-size: cover;
+    height: 500px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  ">
+  <!-- Display messages -->
+
+  <div class="containers">
+    <form action="" method="POST">
+        {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          {% endfor %}
+        {% endif %}
+        {% csrf_token %}
+        <p style="font-size: 30px; font-weight: bold;">Login Here</p>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button class="btn">Login</button>
+    </form>
+
+    <div style="font-size: 18px; line-height: 30px; color: black; padding-top: 10px; text-align: center;">
+        <div>Don't have an account?</div>
+        <div>
+            <a href="signup.html" style="text-decoration: none; color: black; font-weight: bold;"><u>Sign Up</u></a>
+        </div>
+    </div>
+  </div>
+
+  </div>
+</body>
+
+</html>
+
